@@ -85,10 +85,14 @@ Pycharm 2022.3.2
 ## 使用
 
 ```
-source /opt/env/kinit-pro/bin/activate
+https://www.python.org/downloads/macos/
+下载 python 3.10.11
+
+python3 -m venv env
+source ./env/bin/activate
 
 # 安装依赖库
-pip3 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+pip install -r requirements.txt
 
 # 第三方源：
 
@@ -110,6 +114,12 @@ pip3 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
 # 比如要初始化开发环境，那么env参数应该为 dev，并且 application/settings.DEBUG 应该 = True
 # 比如要初始化生产环境，那么env参数应该为 pro，并且 application/settings.DEBUG 应该 = False
 
+docker run --name kinit-mysql -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql:latest
+docker run --name kinit-mongo -p 27017:27017 -d mongo:latest
+docker run --name kinit-redis -p 6379:6379 -d redis:latest
+
+# settings.py 打开开发模式
+
 # 生产环境
 python main.py init
 
@@ -125,6 +135,14 @@ python main.py run
 ```
 
 ## 其他操作
+管理员账户：
+
+账号：15020221010
+密码：kinit2022
+测试账户：
+
+账号：15020240125
+密码：test
 
 在线文档地址(在配置文件里面设置路径或者关闭)
 
